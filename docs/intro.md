@@ -26,3 +26,8 @@ ghc myfile.hs
 ```
 runghc myfile.hs
 ```
+
+## Concatatination 
+- <> operation to concat strings
+    - similar to other functional languages
+    - myfunc name = "hello" <> name <> "how are you"
