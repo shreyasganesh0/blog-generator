@@ -2,16 +2,31 @@ module Main where
 
 main :: IO ()
 
-body_ content = "<body>" <> content <> "</body>"
+el :: String -> String -> String
+el tag content =
+  "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
 
-html_ content = "<html>"<> content <> "</html>"
+html_ :: String -> String
+html_ = el "html"
 
-title_ content = "<title>" <> content <> "</title>"
+body_ :: String -> String
+body_ = el "body"
 
-head_ content = "<head>" <> content <> "</head>"
+title_ :: String -> String
+title_ = el "title"
 
-makeHtml title body = html_ (head_ (title_ title) <> body_ body)
+head_ :: String -> String
+head_ = el "head"
 
-myhtml = makeHtml"My page title" "My page content"
+p_ :: String -> String
+p_ = el "p"
+
+h1_ :: String -> String
+h1_ = el "h1"
+
+makeHtml :: String -> String -> String
+makeHtml = \title -> \body -> html_ (head_ (title_ title)) <> body_ body
+
+myhtml = makeHtml "My page title" (h1_ "My Heading" <> p_ "My page content")
 
 main = putStrLn myhtml
