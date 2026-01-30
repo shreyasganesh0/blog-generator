@@ -22,11 +22,21 @@ html_ title content =
       )
     )
 
+lis_ :: String -> [Structure] -> Structure
+lis_ tag items =
+  Structure (el tag (concatMap (el "li" . getStructureString) items))
+
+ul_ = lis_ "ul"
+ol_ = lis_ "ol"
+
 p_ :: String -> Structure
 p_ = Structure . el "p" . escape
 
 h1_ :: String -> Structure
 h1_ = Structure . el "h1" . escape
+
+code_ :: String -> Structure
+code_ = Structure . el "pre" . escape
 
 append_ :: Structure -> Structure -> Structure
 append_ c1 c2 =
