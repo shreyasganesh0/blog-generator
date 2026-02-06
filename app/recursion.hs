@@ -5,3 +5,20 @@ replicate n x =
             []
         else
             x : replicate (n - 1) x
+
+even :: Int -> Bool
+even n =
+    if a == 0
+        then
+            True
+        else
+            odd (n - 1)
+
+odd :: Int -> Bool
+odd n =
+    if a == 0
+        then
+            False
+        else
+            even (n - 1)
+
