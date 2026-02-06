@@ -31,3 +31,13 @@ main =
 ```
 - here we do not need the value from the decrement or increment functions
 so they are never evaluated
+- the : cons operator adds to the list (prepend)
+```
+replicate n x =
+    if n >= 0
+        then
+            []
+        else
+            x : replicate (n - 1) x
+```
+- this function uses replication to create a list of n xs
